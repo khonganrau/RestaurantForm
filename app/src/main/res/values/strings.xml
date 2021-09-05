@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Restaurant Form</string>
+
+    <!-- Restaurant Form -->
+    <string name="txt_hello" translatable="false">Hello, </string>
+    <string name="txt_username" translatable="false">Username</string>
+    <string name="txt_sub_description" translatable="false">Lets create your restaurant</string>
+    <string name="edt_resName" translatable="false">Restaurant Name</string>
+    <string name="auto_com_tv_resType" translatable="false">Restaurant Type</string>
+    <string name="date_pick" translatable="false">Visit Date</string>
+    <string name="average_price" translatable="false">Average Price</string>
+    <string name="prefix_price" translatable="false">$</string>
+    <string name="btn_submit" translatable="false">Submit</string>
+
+    <!-- Validate -->
+    <string name="txt_error_validate_resName" translatable="false">You need to enter a restaurant name.</string>
+    <string name="txt_error_validate_resPrice" translatable="false">You need to enter an average price.</string>
+    <string name="txt_error_validate_resType" translatable="false"> You need to select a type for restaurant</string>
+    <string name="txt_error_validate_resDate" translatable="false"> You need to select a date </string>
+    <string name="empty_credentials_tv" translatable="false"> Submit is empty!!</string>
+</resources>
