@@ -13,12 +13,19 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
@@ -34,6 +41,9 @@ public class MainActivity extends AppCompatActivity {
     private TextInputEditText txt_price;
 
 
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,9 +56,11 @@ public class MainActivity extends AppCompatActivity {
         edt_resType.setAdapter(arrayAdapter_types);
 
         edt_resType.setThreshold(1);
-
-
         edt_dateVisit.setOnClickListener(view -> pickDay());
+
+
+
+
         
     }
 
@@ -72,6 +84,8 @@ public class MainActivity extends AppCompatActivity {
             String price = Objects.requireNonNull(txt_price.getText()).toString().trim();
             String type = Objects.requireNonNull(edt_resType.getText()).toString().trim();
             String date = Objects.requireNonNull(edt_dateVisit.getText()).toString().trim();
+
+
 
             Vibrator vi = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
 
@@ -114,8 +128,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void submit(String resName, String type, String date, String price) {
-        String content = "Restaurant name: "+ resName +"\nRestaurant type: "+type+"\nDate visit: "+date+"\nAverage Price: "+price;
-        Toast.makeText(MainActivity.this,content,Toast.LENGTH_SHORT).show();
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        Map<String, Object> resInfo = new HashMap<>();
+        resInfo.put("resName", resName);
+        resInfo.put("resType", type);
+        resInfo.put("date", date);
+        resInfo.put("price", price);
+        db.collection("restaurant").add(resInfo).addOnSuccessListener(documentReference -> {
+
+        });
+
     }
 
 
