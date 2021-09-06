@@ -12,15 +12,17 @@
         android:src="@drawable/ic_baseline_menu_50"
         android:layout_marginStart="10dp"
         android:layout_marginTop="20dp"
-        android:backgroundTint="@color/white"/>
+        android:backgroundTint="@color/white"
+        tools:ignore="ContentDescription" />
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_baseline_account_circle_60"
-        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
         android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp"/>
+        android:layout_marginEnd="20dp"
+        tools:ignore="ContentDescription" />
 
     <TextView
         android:id="@+id/txt_hello"
@@ -45,7 +47,8 @@
         android:fontFamily="@font/roboto_medium"
         android:text="@string/txt_username"
         android:textColor="@color/black"
-        android:textSize="40sp" />
+        android:textSize="40sp"
+        tools:ignore="RelativeOverlap" />
 
     <TextView
         android:id="@+id/txt_sub_description"
@@ -76,7 +79,8 @@
         app:boxCornerRadiusBottomStart="10dp"
         app:boxCornerRadiusTopEnd="10dp"
         app:boxCornerRadiusTopStart="10dp"
-        app:errorEnabled="true">
+        app:errorEnabled="true"
+        app:helperText="@string/txt_helper_resName">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edt_resName"
@@ -103,7 +107,8 @@
         app:boxCornerRadiusBottomStart="10dp"
         app:boxCornerRadiusTopEnd="10dp"
         app:boxCornerRadiusTopStart="10dp"
-        app:errorEnabled="true">
+        app:errorEnabled="true"
+        app:helperText="@string/txt_helper_resType">
 
         <AutoCompleteTextView
             android:id="@+id/auto_com_tv_resType"
@@ -129,7 +134,8 @@
         app:boxCornerRadiusBottomStart="10dp"
         app:boxCornerRadiusTopEnd="10dp"
         app:boxCornerRadiusTopStart="10dp"
-        app:errorEnabled="true">
+        app:errorEnabled="true"
+        app:helperText="@string/txt_helper_dateVisit">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edt_dateVisit"
@@ -156,7 +162,8 @@
         app:boxCornerRadiusTopEnd="10dp"
         app:boxCornerRadiusTopStart="10dp"
         app:errorEnabled="true"
-        app:prefixText="@string/prefix_price">
+        app:prefixText="@string/prefix_price"
+        app:helperText="@string/txt_helper_averagePrice">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edt_averagePrice"
@@ -174,6 +181,7 @@
         android:layout_below="@+id/layout_averagePrice"
         android:layout_marginStart="24dp"
         android:layout_marginEnd="24dp"
+        android:layout_marginTop="20dp"
         android:textSize="25sp"
         android:fontFamily="@font/roboto_regular"
         android:backgroundTint="@color/black"/>

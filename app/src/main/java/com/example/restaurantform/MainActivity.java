@@ -8,12 +8,9 @@ import android.content.Context;
 import android.os.Bundle;
 import android.os.Vibrator;
 import android.text.TextUtils;
-import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
-import android.widget.DatePicker;
-import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputEditText;
@@ -78,10 +75,11 @@ public class MainActivity extends AppCompatActivity {
 
             Vibrator vi = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
 
+
             if (TextUtils.isEmpty(resName)) {
-                TextInputLayout til = (TextInputLayout) findViewById(R.id.layout_resName);
-                til.setError(getString(R.string.txt_error_validate_resName));
-                til.requestFocus();
+                TextInputLayout til_name = findViewById(R.id.layout_resName);
+                til_name.setError(getString(R.string.txt_error_validate_resName));
+                til_name.requestFocus();
             }
 
             if (TextUtils.isEmpty(price)) {
@@ -116,7 +114,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void submit(String resName, String type, String date, String price) {
-        Toast.makeText(MainActivity.this," Submitted",Toast.LENGTH_SHORT).show();
+        String content = "Restaurant name: "+ resName +"\nRestaurant type: "+type+"\nDate visit: "+date+"\nAverage Price: "+price;
+        Toast.makeText(MainActivity.this,content,Toast.LENGTH_SHORT).show();
     }
 
 
